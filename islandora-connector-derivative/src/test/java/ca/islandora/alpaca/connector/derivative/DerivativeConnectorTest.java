@@ -66,7 +66,7 @@ public class DerivativeConnectorTest extends CamelBlueprintTestSupport {
                     replaceFromWith("direct:start");
 
                     // Rig Drupal REST endpoint to return canned jsonld
-                    interceptSendToEndpoint("http://example.org/derivative/convert?connectionClose=true")
+                    interceptSendToEndpoint("http://example.org/derivative/convert?connectionClose=true&httpClient.SocketTimeout={{http.socketTimeoutMs}}&httpClient.ConnectionRequestTimeout={{http.connectionRequestTimeoutMs}}&httpClient.ConnectTimeout={{http.connectTimeoutMs}}")
                             .skipSendToOriginalEndpoint()
                             .process(exchange -> {
                                 exchange.getIn().removeHeaders("*", "Authorization");

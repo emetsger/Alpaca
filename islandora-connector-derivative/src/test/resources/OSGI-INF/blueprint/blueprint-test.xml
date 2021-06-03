@@ -13,6 +13,9 @@
       <cm:property name="error.maxRedeliveries" value="5"/>
       <cm:property name="in.stream" value="seda:islandora-connector.derivative-index"/>
       <cm:property name="derivative.service.url" value="http://example.org/derivative/convert"/>
+      <cm:property name="http.socketTimeoutMs" value="10000"/>
+      <cm:property name="http.connectTimeoutMs" value="10000"/>
+      <cm:property name="http.connectionRequestTimeoutMs" value="10000"/>
     </cm:default-properties>
   </cm:property-placeholder>
 

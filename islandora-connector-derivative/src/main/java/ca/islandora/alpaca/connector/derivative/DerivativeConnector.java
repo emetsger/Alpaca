@@ -66,7 +66,7 @@ public class DerivativeConnector extends RouteBuilder {
             .setHeader("X-Islandora-Args", simple("${exchangeProperty.event.attachment.content.args}"))
             .setHeader("Apix-Ldp-Resource", simple("${exchangeProperty.event.attachment.content.sourceUri}"))
             .setBody(simple("${null}"))
-            .to("{{derivative.service.url}}?connectionClose=true")
+            .to("{{derivative.service.url}}?connectionClose=true&httpClient.SocketTimeout={{http.socketTimeoutMs}}&httpClient.ConnectionRequestTimeout={{http.connectionRequestTimeoutMs}}&httpClient.ConnectTimeout={{http.connectTimeoutMs}}")
 
             // PUT the media.
             .removeHeaders("*", "Authorization", "Content-Type")
