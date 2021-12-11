@@ -52,7 +52,7 @@ public class DerivativeConnector extends RouteBuilder {
                 .log(
                         WARN,
                         LOGGER,
-                        "Error generating derivative with {{derivative.service.url}}: ${exception.message}" +
+                        "MOO! Error generating derivative with {{derivative.service.url}}: ${exception.message}" +
                                 "\n\n${exception.stacktrace}"
                 );
 
@@ -63,7 +63,7 @@ public class DerivativeConnector extends RouteBuilder {
             .log(
                 WARN,
                 LOGGER,
-                "Error connecting generating derivative with {{derivative.service.url}}: " +
+                "MOO MOO! Error connecting generating derivative with {{derivative.service.url}}: " +
                 "${exception.message}\n\n${exception.stacktrace}"
             );
 
