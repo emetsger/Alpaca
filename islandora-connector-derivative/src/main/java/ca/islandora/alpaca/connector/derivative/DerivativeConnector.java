@@ -47,11 +47,7 @@ public class DerivativeConnector extends RouteBuilder {
 
         // Retry HTTP-related error conditions for longer (exponential backoff, delay)
         onException(HttpOperationFailedException.class)
-                .maximumRedeliveries("{{error.maxRedeliveries}}")
-                .redeliveryDelay("{{error.redeliveryDelay}}")
-                .backOffMultiplier("{{error.backoff}}")
-                .useExponentialBackOff()
-                .logRetryAttempted(false)
+                .maximumRedeliveries(0)
                 .useOriginalMessage()
                 .log(
                         WARN,
@@ -63,7 +59,7 @@ public class DerivativeConnector extends RouteBuilder {
         // Global exception handler for the indexer.
         // Just logs after retrying X number of times.
         onException(Exception.class)
-            .maximumRedeliveries("{{error.maxRedeliveries}}")
+            .maximumRedeliveries(0)
             .log(
                 WARN,
                 LOGGER,
